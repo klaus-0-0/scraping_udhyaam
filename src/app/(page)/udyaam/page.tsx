@@ -21,7 +21,7 @@ function Udyaam() {
   useEffect(() => {
     async function fetchAndParse() {
       try {
-        const res = await fetch("/api/index");
+        const res = await fetch("https://scraping-udhyaam.vercel.app/api/index");
         // const res = await fetch("http://localhost:3000/api/index");
         if (!res.ok) throw new Error("Network response was not ok");
         const json = await res.json();
