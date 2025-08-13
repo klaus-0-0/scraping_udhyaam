@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import Image from "next/image";
 import wall from "@/app/assets/SignBI.png"; // Adjust path if assets folder is different
 
@@ -33,8 +33,12 @@ const Signup = () => {
       setTimeout(() => {
         router.push("/dashboard");
       }, 1500);
-    } catch (error: any) {
-      console.error("Signup Failed:", error?.response?.data || error.message);
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        console.error("Signup Failed:", error.response?.data || error.message);
+      } else {
+        console.error("Signup Failed:", error);
+      }
     }
   };
 

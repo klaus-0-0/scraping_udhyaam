@@ -76,7 +76,7 @@ function Udyaam() {
           )
           .map((val) => {
             let value = "";
-            let onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {};
+            let onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void = () => {};
 
             if (val.id === "ctl00_ContentPlaceHolder1_txtadharno") {
               value = addharNumber;
