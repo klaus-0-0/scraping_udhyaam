@@ -1,30 +1,25 @@
+// src/app/api/index/route.ts
 import axios from 'axios';
 import * as cheerio from 'cheerio';
-import fs from 'fs';
 
-const url = "https://udyamregistration.gov.in/UdyamRegistration.aspx";
+interface InputField {
+  name: string;
+  type: string;
+  maxlength: string;
+  id: string;
+  placeholder: string;
+}
 
-// Export a named async GET handler (required for Next.js app router API routes)
+const URL = "https://udyamregistration.gov.in/UdyamRegistration.aspx";
+
 export async function GET() {
   try {
-    const response = await axios.get(url);
+    const response = await axios.get(URL);
     const html = response.data;
     const $ = cheerio.load(html);
 
-    // FIX: inputs should be an array of objects, not string[]
-    // Also interface declaration inside function is not standard, define outside if needed
-    interface InputField {
-      name: string;
-      type: string;
-      maxlength: string;
-      id: string;
-      placeholder: string;
-    }
-
-    // Declare inputs array with correct type
     const inputs: InputField[] = [];
 
-    // Loop through all input elements and push the relevant attributes
     $('input').each((_, el) => {
       inputs.push({
         name: $(el).attr('name') || '',
@@ -35,15 +30,6 @@ export async function GET() {
       });
     });
 
-    // Write to file (optional, may fail in some environments)
-    try {
-      fs.writeFileSync('scrapAadharData.json', JSON.stringify(inputs, null, 2));
-    } catch (e) {
-      // This can fail in serverless/restricted environments, so warn only
-      console.warn('Could not write file:', e);
-    }
-
-    // Return JSON response with extracted input fields
     return new Response(JSON.stringify({ input: inputs }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
@@ -51,12 +37,13 @@ export async function GET() {
   } catch (err) {
     console.error('Error fetching or parsing:', err);
 
-    return new Response(JSON.stringify({ error: 'Failed to read or parse data' }), {
+    return new Response(JSON.stringify({ error: 'Failed to fetch or parse data' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });
   }
 }
+
 
 /*
 Preserved your original comment here:
