@@ -22,7 +22,7 @@ const Signup = () => {
 
   const handleSignup = async () => {
     try {
-      const res = await axios.post(`http://localhost:3000/api/signup`, {
+      const res = await axios.post(`/api/signup`, {
         username,
         number,
         password,
