@@ -10,12 +10,14 @@ interface InputField {
   placeholder: string;
 }
 
-// const URL = "https://udyamregistration.gov.in/UdyamRegistration.aspx";
+const URL = "https://udyamregistration.gov.in/UdyamRegistration.aspx";
 
 export async function GET() {
   try {
-    const response = await axios.get("https://udyamregistration.gov.in/UdyamRegistration.aspx", {
-      headers: { 'User-Agent': 'Mozilla/5.0' } // mimic a browser
+    const response = await axios.get(URL, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5790.102 Safari/537.36'
+      }
     });
 
     const html = response.data;
