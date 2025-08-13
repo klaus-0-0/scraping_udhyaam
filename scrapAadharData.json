@@ -1,0 +1,58 @@
+[
+  {
+    "name": "__VIEWSTATE",
+    "type": "hidden",
+    "maxlength": "",
+    "id": "__VIEWSTATE",
+    "placeholder": ""
+  },
+  {
+    "name": "__VIEWSTATEGENERATOR",
+    "type": "hidden",
+    "maxlength": "",
+    "id": "__VIEWSTATEGENERATOR",
+    "placeholder": ""
+  },
+  {
+    "name": "__VIEWSTATEENCRYPTED",
+    "type": "hidden",
+    "maxlength": "",
+    "id": "__VIEWSTATEENCRYPTED",
+    "placeholder": ""
+  },
+  {
+    "name": "__EVENTVALIDATION",
+    "type": "hidden",
+    "maxlength": "",
+    "id": "__EVENTVALIDATION",
+    "placeholder": ""
+  },
+  {
+    "name": "ctl00$ContentPlaceHolder1$txtadharno",
+    "type": "text",
+    "maxlength": "12",
+    "id": "ctl00_ContentPlaceHolder1_txtadharno",
+    "placeholder": "Your Aadhaar No"
+  },
+  {
+    "name": "ctl00$ContentPlaceHolder1$txtownername",
+    "type": "text",
+    "maxlength": "100",
+    "id": "ctl00_ContentPlaceHolder1_txtownername",
+    "placeholder": "Name as per Aadhaar"
+  },
+  {
+    "name": "ctl00$ContentPlaceHolder1$chkDecarationA",
+    "type": "checkbox",
+    "maxlength": "",
+    "id": "ctl00_ContentPlaceHolder1_chkDecarationA",
+    "placeholder": ""
+  },
+  {
+    "name": "ctl00$ContentPlaceHolder1$btnValidateAadhaar",
+    "type": "submit",
+    "maxlength": "",
+    "id": "ctl00_ContentPlaceHolder1_btnValidateAadhaar",
+    "placeholder": ""
+  }
+]
