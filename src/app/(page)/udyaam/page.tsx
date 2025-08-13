@@ -21,7 +21,8 @@ function Udyaam() {
   useEffect(() => {
     async function fetchAndParse() {
       try {
-        const res = await fetch("http://localhost:3000/api/index");
+        const res = await fetch("/api/index");
+        // const res = await fetch("http://localhost:3000/api/index");
         if (!res.ok) throw new Error("Network response was not ok");
         const json = await res.json();
         setData(json.input || []);
@@ -76,7 +77,7 @@ function Udyaam() {
           )
           .map((val) => {
             let value = "";
-            let onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void = () => {};
+            let onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void = () => { };
 
             if (val.id === "ctl00_ContentPlaceHolder1_txtadharno") {
               value = addharNumber;
