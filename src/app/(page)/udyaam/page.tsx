@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import jsonData from "../../../../scrapAadharData.json"
 
 interface InputField {
   id?: string;
@@ -21,17 +22,22 @@ function Udyaam() {
   useEffect(() => {
     async function fetchAndParse() {
       try {
-        const res = await fetch("/api/index");
-        // const res = await fetch("http://localhost:3000/api/index");
-        if (!res.ok) throw new Error("Network response was not ok");
-        const json = await res.json();
-        setData(json.input || []);
+        // const res = await fetch("/api/index");
+        // if (!res.ok) throw new Error("Network response was not ok");
+        // const json = await res.json();
+        // console.log("json = ",json)
+        // setData(json.input || []);
+        setData(jsonData || []);
       } catch (err) {
         console.error("Error loading:", err);
       }
     }
     fetchAndParse();
   }, []);
+
+  useEffect(()=>{
+    console.log("data = ", data)
+  }, [data])
 
   async function handleForm(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
